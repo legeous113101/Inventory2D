@@ -7,7 +7,6 @@ namespace ChatCoreTest
         public static void Main(string[] args)
         {
             var testBag = new Inventory2D();
-            var sword = new Sword();
             var isAdd = testBag.AddItem(new Sword());
             var isAdd2 = testBag.AddItem(new Sword());
             var isAdd3 = testBag.AddItem(new Sword());

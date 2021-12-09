@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ChatCoreTest
 {
@@ -7,6 +8,7 @@ namespace ChatCoreTest
         public int width = 4;
         public int height = 4;
         public BagGrid[,] bagGrids;
+        public Dictionary<int, Item> itemTable = new Dictionary<int, Item>();
         public Inventory2D()
         {
             bagGrids = new BagGrid[height, width];
@@ -57,6 +59,8 @@ namespace ChatCoreTest
                             bagGrids[i + m, j + n].id = target.ID; //Spawn item
                         }
                     }
+                    if(!itemTable.ContainsKey(target.ID))
+                    itemTable.Add(target.ID, target);
                     return true;
                 }
             }
