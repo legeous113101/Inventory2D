@@ -7,16 +7,16 @@ namespace ChatCoreTest
     {
         public int width = 4;
         public int height = 4;
-        public BagGrid[,] bagGrids;
+        public ItemContainer[,] bagGrids;
         public Dictionary<int, Item> itemTable = new Dictionary<int, Item>();
         public Inventory2D()
         {
-            bagGrids = new BagGrid[height, width];
+            bagGrids = new ItemContainer[height, width];
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
-                    bagGrids[i, j] = new BagGrid();
+                    bagGrids[i, j] = new ItemContainer();
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace ChatCoreTest
     }
 
 
-    class BagGrid
+    class ItemContainer
     {
         public int id = 0;
         public bool IsEmpty => id == 0;
@@ -104,5 +104,14 @@ namespace ChatCoreTest
             Random rand = new Random();
             ID = rand.Next(1, 10);
         }
+        public Sword(int id)
+        {
+            width = 1;
+            height = 3;
+            Random rand = new Random();
+            ID = id;
+        }
+
+
     }
 }
